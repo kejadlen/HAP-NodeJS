@@ -30,7 +30,7 @@ declare namespace HAPNodeJS {
         iid: string;
         characteristics: Characteristic[];
         optionalCharacteristics: Characteristic[];
-        
+
         isHiddenService: boolean;
         isPrimaryService: boolean;
         linkedServices: Service[];
@@ -102,13 +102,12 @@ declare namespace HAPNodeJS {
         Window: PredefinedService;
         WindowCovering: PredefinedService;
     }
-    
+
     export interface PredefinedService {
         new (displayName: string, subtype: string): Service;
     }
 
     export interface CameraSource {
-
     }
 
     type EventAccessory = "service-configurationChange" | "service-characteristic-change" | "identify"
@@ -144,7 +143,6 @@ declare namespace HAPNodeJS {
     export type CallbackGetListener = (cb: CharacteristicGetCallback) => void
     export type CallbackSetListener<T = CharacteristicValue> = (value: T, cb: CharacteristicSetCallback) => void
     export type CallbackListener = CallbackGetListener | CallbackSetListener
-
 
     export interface IEventEmitterCharacteristic {
         addListener(event: EventCharacteristic, listener: CallbackListener): this;
@@ -338,7 +336,6 @@ declare namespace HAPNodeJS {
         WaterLevel: Characteristic;
     }
 
-
     module Characteristic {
         export enum Formats {
             BOOL,
@@ -456,7 +453,6 @@ declare namespace HAPNodeJS {
         Service: Service,
         Characteristic: Characteristic
     }
-
 
 }
 
