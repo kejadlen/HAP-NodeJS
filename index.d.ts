@@ -137,7 +137,7 @@ declare namespace HAPNodeJS {
     type EventCharacteristic = "get" | "set"
     type CharacteristicValue = boolean | string | number
 
-    export type CharacteristicGetCallback<T = CharacteristicValue> = (error: Error | null , value: T) => void
+    export type CharacteristicGetCallback<T = CharacteristicValue> = (error: Error | null , value?: T) => void
     export type CharacteristicSetCallback = (error?: Error | null) => void
     export type CharacteristicCallback = CharacteristicGetCallback | CharacteristicSetCallback
     export type CallbackGetListener = (cb: CharacteristicGetCallback) => void
@@ -146,7 +146,8 @@ declare namespace HAPNodeJS {
 
     export interface IEventEmitterCharacteristic {
         addListener(event: EventCharacteristic, listener: CallbackListener): this;
-        on(event: EventCharacteristic, listener: CallbackListener): this;
+        on(event: "get", listener: CallbackGetListener): this;
+        on(event: "set", listener: CallbackSetListener): this;
         once(event: EventCharacteristic, listener: CallbackListener): this;
         removeListener(event: EventCharacteristic, listener: CallbackListener): this;
         removeAllListeners(event?: EventCharacteristic): this;
